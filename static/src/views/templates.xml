@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="payment_cash_on_delivery.PaymentFeeDisplay">
+        <div style="border:1px solid red; padding:10px;">
+            <p>Hello from COD Component!</p>
+            <div t-if="state.visible">
+                COD Charges: <t t-esc="state.currency_symbol"/><t t-esc="state.cod_charges"/>
+                <br/>
+                New Total: <t t-esc="state.currency_symbol"/><t t-esc="state.total"/>
+            </div>
+        </div>
+    </t>
+</templates>

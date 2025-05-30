@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<odoo>-->
+<!--    <template id="payment_cod_charges_line" inherit_id="website_sale.total">-->
+<!--        <xpath expr="//tr[@id='order_total_untaxed']" position="after">-->
+<!--            <tr class="cod-charges-row"-->
+<!--                style="display:none">-->
+<!--                <td id="cart_cod_charges"-->
+<!--                    class="border-0 pb-2 ps-0 pt-0 text-start text-muted"-->
+<!--                    colspan="2">-->
+<!--                    COD charges-->
+<!--                </td>-->
+<!--                <td id="cart_cod_monetary"-->
+<!--                    class="text-end border-0 pb-2 pe-0 pt-0">-->
+<!--                    <span t-field="website_sale_order.cod_charges"-->
+<!--                          class="monetary_field"-->
+<!--                          style="white-space: nowrap;"-->
+<!--                          t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}">$0-->
+<!--                    </span>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@id='o_payment_form']" position="after">-->
+<!--            <t t-component="PaymentFeeDisplay"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+<!--</odoo>-->
+<odoo>
+    <!-- Optional: Add a COD row to the cart totals -->
+    <template id="payment_cod_charges_line" inherit_id="website_sale.total">
+        <xpath expr="//tr[@id='order_total_untaxed']" position="after">
+            <tr class="cod-charges-row"
+                style="display:none">
+                <td id="cart_cod_charges"
+                    class="border-0 pb-2 ps-0 pt-0 text-start text-muted"
+                    colspan="2">
+                    COD charges
+                </td>
+                <td id="cart_cod_monetary"
+                    class="text-end border-0 pb-2 pe-0 pt-0">
+                    <span class="monetary_field"
+                          style="white-space: nowrap;">$0</span>
+                </td>
+            </tr>
+        </xpath>
+    </template>
+
+    <!-- ✅ Corrected: Mount OWL component on the payment page -->
+    <template id="payment_fee_display_component" inherit_id="website_sale.payment">
+        <xpath expr="//div[@id='payment_method']" position="after">
+            <t t-component="payment_cash_on_delivery.PaymentFeeDisplay"/>
+        </xpath>
+    </template>
+</odoo>
+
+        <!--<odoo>-->
+        <!--    <template id="payment_checkout_inherit" inherit_id="website_sale.payment_checkout" name="Display Payment Fee">-->
+        <!--        <xpath expr="//div[contains(@class, 'o_payment_provider')]" position="inside">-->
+        <!--            <t t-if="provider.payment_provider_charges">-->
+        <!--                <span t-att-class="'payment_fee_' + str(provider.id)" style="display:none;">-->
+        <!--                    Fee:-->
+        <!--                    <t t-esc="provider._compute_payment_provider_charges(amount, currency, country)"/>-->
+        <!--                    <t t-esc="currency.symbol"/>-->
+        <!--                </span>-->
+        <!--            </t>-->
+        <!--        </xpath>-->
+        <!--    </template>-->
+        <!--</odoo>-->
