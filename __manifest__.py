@@ -17,7 +17,7 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'payment_cash_on_delivery/static/src/js/cash_on_delivery.js',
+            # 'payment_cash_on_delivery/static/src/js/cash_on_delivery.js',
             'payment_cash_on_delivery/static/src/js/pay_now.js',
             # 'payment_cash_on_delivery/static/src/js/cash_on_delivery_component.js',
         ],

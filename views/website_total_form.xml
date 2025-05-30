@@ -44,12 +44,12 @@
         </xpath>
     </template>
 
-    <!-- ✅ Corrected: Mount OWL component on the payment page -->
-    <template id="payment_fee_display_component" inherit_id="website_sale.payment">
-        <xpath expr="//div[@id='payment_method']" position="after">
-            <t t-component="payment_cash_on_delivery.PaymentFeeDisplay"/>
-        </xpath>
-    </template>
+<!--    &lt;!&ndash; ✅ Corrected: Mount OWL component on the payment page &ndash;&gt;-->
+<!--    <template id="payment_fee_display_component" inherit_id="website_sale.payment">-->
+<!--        <xpath expr="//div[@id='payment_method']" position="after">-->
+<!--            <t t-call="payment_cash_on_delivery.PaymentFeeDisplay"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
 </odoo>
 
         <!--<odoo>-->

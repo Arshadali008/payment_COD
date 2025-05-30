@@ -138,44 +138,44 @@
 //        },
 //    });
 //});
-
-/** @odoo-module **/
-
-import { Component, useState, onMounted } from "@odoo/owl";
-import { registry } from "@web/core/registry";
-
-export class PaymentFeeDisplay extends Component {
-    static template = "payment_cash_on_delivery.cash_on_delivery_component";
-
-    setup() {
-        this.state = useState({
-            selectedProviderId: null,
-            visible: true, // Set it here directly
-            currency_symbol: '₹',
-            cod_charges: 50,
-            total: 0,
-        });
-        console.log("qwerty");
-        onMounted(() => {
-            this._initializePaymentProvider();
-        });
-    }
-
-
-    _initializePaymentProvider() {
-        // Find the initially selected payment provider
-        const selectedRadio = document.querySelector('input[name="o_payment_radio"]:checked');
-        if (selectedRadio) {
-            this.state.selectedProviderId = selectedRadio.value;
-        }
-
-        // Add event listener for payment provider changes
-        document.querySelectorAll('input[name="o_payment_radio"]').forEach(radio => {
-            radio.addEventListener('change', (ev) => {
-                this.state.selectedProviderId = ev.target.value;
-            });
-        });
-    }
-}
-
-registry.category("public_components").add("payment_cash_on_delivery.PaymentFeeDisplay", PaymentFeeDisplay);
+//
+///** @odoo-module **/
+//
+//import { Component, useState, onMounted } from "@odoo/owl";
+//import { registry } from "@web/core/registry";
+//
+//export class PaymentFeeDisplay extends Component {
+//    static template = "payment_cash_on_delivery.PaymentFeeDisplay";
+//
+//    setup() {
+//        this.state = useState({
+//            selectedProviderId: null,
+//            visible: true,
+//            currency_symbol: '₹',
+//            cod_charges: 50,
+//            total: 0,
+//        });
+//        console.log("qwerty");
+//        onMounted(() => {
+//            this._initializePaymentProvider();
+//        });
+//    }
+//
+//
+//    _initializePaymentProvider() {
+//        // Find the initially selected payment provider
+//        const selectedRadio = document.querySelector('input[name="o_payment_radio"]:checked');
+//        if (selectedRadio) {
+//            this.state.selectedProviderId = selectedRadio.value;
+//        }
+//
+//        // Add event listener for payment provider changes
+//        document.querySelectorAll('input[name="o_payment_radio"]').forEach(radio => {
+//            radio.addEventListener('change', (ev) => {
+//                this.state.selectedProviderId = ev.target.value;
+//            });
+//        });
+//    }
+//}
+//
+//registry.category("public_components").add("payment_cash_on_delivery.PaymentFeeDisplay", PaymentFeeDisplay);
